@@ -1,0 +1,22 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        // Initialize a variable to keep track of the index where non-zero elements should be placed
+        int nonZeroIndex = 0;
+        
+        // Loop through all elements in the array
+        for (int i = 0; i < nums.size(); ++i) {
+            // If the current element is non-zero, move it to the front of the array
+            if (nums[i] != 0) {
+                nums[nonZeroIndex] = nums[i];
+                nonZeroIndex++; // Move to the next position where a non-zero element should be placed
+            }
+        }
+        
+        // Fill the remaining positions in the array with zeroes
+        while (nonZeroIndex < nums.size()) {
+            nums[nonZeroIndex] = 0;
+            nonZeroIndex++;
+        }
+    }
+};
